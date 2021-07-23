@@ -16,6 +16,11 @@ screen.addEventListener('mousedown', mouseDownEvent);
 screen.addEventListener('mousemove', mouseMoveEvent);
 screen.addEventListener('mouseup', mouseUpEvent);
 
+screen.addEventListener('touchstart', touchStartEvent);
+screen.addEventListener('touchmove', touchMoveEvent);
+screen.addEventListener('touchend', touchEndEvent);
+
+
 document.querySelector('.clear').addEventListener('click', clearScreen);
 
 // Functions
@@ -43,6 +48,22 @@ function mouseUpEvent() {
     canDraw = false;
 }
 
+function touchStartEvent(e) {
+  canDraw = true;
+  mouseX = e.pageX - screen.offsetLeft;
+  mouseY = e.pageY - screen.offsetTop;
+}
+
+function touchMoveEvent(e) {
+  if(canDraw) {
+      drawn(e.pageX, e.pageY);
+  }
+}
+
+function touchEndEvent() {
+  canDraw = false;
+}
+
 function drawn(x,y){
     let pointX = x - screen.offsetLeft;
     let pointY = y - screen.offsetTop;
@@ -66,3 +87,4 @@ function clearScreen() {
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
 }
+
