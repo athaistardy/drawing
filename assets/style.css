@@ -26,7 +26,7 @@ h1 {
 }
 
 .colorArea {
-    width: 350px;
+    width: 800px;
     display: flex;
 }
 .color {
@@ -35,8 +35,9 @@ h1 {
     cursor: pointer;
 }
 .color.active {
-    border: 5px solid #FFF;
+    border: 3px solid rgb(79, 189, 240);
 }
+
 
 .clear {
     border: 1px solid #000;
